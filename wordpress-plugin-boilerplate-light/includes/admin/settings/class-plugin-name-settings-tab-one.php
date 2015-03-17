@@ -80,14 +80,6 @@ class Plugin_Name_Settings_First_Tab extends Plugin_Name_Settings_Page {
 			),
 
 			array(
-				'title' 	=> __( 'Secure Content', PLUGIN_NAME_TEXT_DOMAIN ),
-				'desc' 		=> __( 'Keep your site secure by forcing SSL (HTTPS) on site (an SSL Certificate is required).', PLUGIN_NAME_TEXT_DOMAIN ),
-				'id' 		=> 'plugin_name_force_ssl',
-				'default'	=> 'no',
-				'type' 		=> 'checkbox'
-			),
-
-			array(
 				'title' 	=> __( 'Single Checkbox', PLUGIN_NAME_TEXT_DOMAIN ),
 				'desc' 		=> __( 'Can come in handy to display more options.', PLUGIN_NAME_TEXT_DOMAIN ),
 				'id' 		=> 'plugin_name_checkbox',

@@ -150,7 +150,6 @@ class Plugin_Name_Admin {
 			$links = apply_filters( 'plugin_name_update_footer_links', array(
 				PLUGIN_NAME_GITHUB_REPO_URI . 'blob/master/CONTRIBUTING.md?utm_source=wpadmin&utm_campaign=footer' => __( 'Contribute', PLUGIN_NAME_TEXT_DOMAIN ),
 				PLUGIN_NAME_GITHUB_REPO_URI . 'issues?state=open&utm_source=wpadmin&utm_campaign=footer' => __( 'Report Bugs', PLUGIN_NAME_TEXT_DOMAIN ),
-				PLUGIN_NAME_TRANSIFEX_PROJECT_URI . '?utm_source=wpadmin&utm_campaign=footer' => __( 'Translate', PLUGIN_NAME_TEXT_DOMAIN ),
 			) );
 
 			foreach( $links as $key => $value ) {
@@ -160,9 +159,7 @@ class Plugin_Name_Admin {
 			$text .= '</span>' . '</p>'.
 			'<p class="alignright">'.
 			sprintf( __( '%s Version', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->name ).
-			' : <a href="' . $version_link . '">'.
-			esc_attr( Plugin_Name()->version ).
-			'</a>';
+			' : ' . esc_attr( Plugin_Name()->version ) . '</p>';
 
 			return $text;
 		}

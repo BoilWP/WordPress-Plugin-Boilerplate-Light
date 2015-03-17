@@ -58,18 +58,16 @@ class Plugin_Name_Admin_Help {
 			'content' =>
 				'<p>' . sprintf( __( 'After <a href="%s">reading the documentation</a>, for further assistance you can use the <a href="%s">community forum</a>.', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->doc_url, Plugin_Name()->wp_plugin_support_url, __( 'Company Name' , PLUGIN_NAME_TEXT_DOMAIN ) ) . '</p>' .
 
-				'<p>' . __( 'Before asking for help we recommend checking the status page to identify any problems with your configuration.', PLUGIN_NAME_TEXT_DOMAIN ) . '</p>' .
-
-				'<p><a href="' . admin_url( 'admin.php?page=' . PLUGIN_NAME_PAGE . '-status' ) . '" class="button button-primary">' . __( 'System Status', PLUGIN_NAME_TEXT_DOMAIN ) . '</a> <a href="' . Plugin_Name()->wp_plugin_support_url . '" class="button">' . __( 'Community Support', PLUGIN_NAME_TEXT_DOMAIN ) . '</a>'
+				'<p><a href="' . Plugin_Name()->wp_plugin_support_url . '" class="button button-primary">' . __( 'Community Support', PLUGIN_NAME_TEXT_DOMAIN ) . '</a></p>'
 		) );
 
 		$screen->add_help_tab( array(
 			'id'      => 'plugin_name_bugs_tab',
 			'title'   => __( 'Found a bug?', PLUGIN_NAME_TEXT_DOMAIN ),
 			'content' =>
-				'<p>' . sprintf( __( 'If you find a bug within <strong>%s</strong> you can create a ticket via <a href="%s">Github issues</a>. Ensure you read the <a href="%s">contribution guide</a> prior to submitting your report. Be as descriptive as possible and please include your <a href="%s">system status report</a>.', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->name, PLUGIN_NAME_GITHUB_REPO_URI . 'issues?state=open', PLUGIN_NAME_GITHUB_REPO_URI . 'blob/master/CONTRIBUTING.md', admin_url( 'admin.php?page=' . PLUGIN_NAME_PAGE . '-status' ) ) . '</p>' .
+				'<p>' . sprintf( __( 'If you find a bug within <strong>%s</strong> you can create a ticket via <a href="%s">Github issues</a>. Ensure you read the <a href="%s">contribution guide</a> prior to submitting your report. Be as descriptive as possible. Thank you.', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->name, PLUGIN_NAME_GITHUB_REPO_URI . 'issues?state=open', PLUGIN_NAME_GITHUB_REPO_URI . 'blob/master/CONTRIBUTING.md', admin_url( 'admin.php?page=' . PLUGIN_NAME_PAGE . '-status' ) ) . '</p>' .
 
-				'<p><a href="' . PLUGIN_NAME_GITHUB_REPO_URI . 'issues?state=open" class="button button-primary">' . __( 'Report a bug', PLUGIN_NAME_TEXT_DOMAIN ) . '</a> <a href="' . admin_url( 'admin.php?page=' . PLUGIN_NAME_PAGE . '-status' ) . '" class="button">' . __( 'System Status', PLUGIN_NAME_TEXT_DOMAIN ) . '</a></p>'
+				'<p><a href="' . PLUGIN_NAME_GITHUB_REPO_URI . 'issues?state=open" class="button button-primary">' . __( 'Report a bug', PLUGIN_NAME_TEXT_DOMAIN ) . '</a></p>'
 		) );
 
 		if ( !empty( Plugin_Name()->web_url ) || !empty( Plugin_Name()->wp_plugin_url ) || defined( PLUGIN_NAME_GITHUB_REPO_URI ) ) {

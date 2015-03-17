@@ -2,7 +2,7 @@
 /*
  * Plugin Name:       WordPress Plugin Boilerplate Light
  * Plugin URI:        https://github.com/BoilWP/WordPress-Plugin-Boilerplate-Light
- * Description:       The best WordPress plugin boilerplate you will ever need, comes prepaired with settings control panel, system information, a welcoming dashboard and more.
+ * Description:       The best light WordPress plugin boilerplate you will ever need, comes prepaired with settings control panel.
  * Version:           1.0.0
  * Author:            Sébastien Dumont
  * Author URI:        http://www.sebastiendumont.com
@@ -166,7 +166,7 @@ final class Plugin_Name {
 	 * @access public
 	 * @var    string
 	 */
-	public $github_repo_url = "https://github.com/BoilWP/WordPress-Plugin-Boilerplate/";
+	public $github_repo_url = "https://github.com/BoilWP/WordPress-Plugin-Boilerplate-Light/";
 
 	/**
 	 * The Plugin menu name.
@@ -397,7 +397,6 @@ final class Plugin_Name {
 		if ( ! defined( 'PLUGIN_NAME_README_FILE' ) )           define( 'PLUGIN_NAME_README_FILE', 'http://plugins.svn.wordpress.org/plugin-name/trunk/readme.txt' );
 
 		if ( ! defined( 'PLUGIN_NAME_GITHUB_REPO_URI' ) )       define( 'PLUGIN_NAME_GITHUB_REPO_URI', $this->github_repo_url );
-		if ( ! defined( 'PLUGIN_NAME_TRANSIFEX_PROJECT_URI' ) ) define( 'PLUGIN_NAME_TRANSIFEX_PROJECT_URI', $this->transifex_project_url );
 
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 		define( 'PLUGIN_NAME_SCRIPT_MODE', $suffix );
