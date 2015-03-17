@@ -353,10 +353,7 @@ final class Plugin_Name {
 
 		$class = strtolower( $class );
 
-		if ( strpos( $class, 'plugin_name_' ) === 0 ) {
-			$path = $this->plugin_path() . '/includes/classes/';
-		}
-		else if ( strpos( $class, 'plugin_name_admin' ) === 0 ) {
+		if ( strpos( $class, 'plugin_name_admin' ) === 0 ) {
 			$path = $this->plugin_path() . '/includes/admin/';
 		}
 

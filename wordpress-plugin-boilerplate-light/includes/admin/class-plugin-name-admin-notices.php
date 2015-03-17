@@ -36,7 +36,7 @@ class Plugin_Name_Admin_Notices {
 	 * @access public
 	 */
 	public function add_notices() {
-		if ( get_option( '_plugin_name_needs_update' ) == 1 || get_option( '_plugin_name_needs_pages' ) == 1 ) {
+		if ( get_option( '_plugin_name_needs_update' ) == 1 ) {
 			wp_enqueue_style( 'plugin-name-activation', Plugin_Name()->plugin_url() . '/assets/css/admin/activation.css' );
 			add_action( 'admin_notices', array( $this, 'install_notice' ) );
 		}

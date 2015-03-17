@@ -108,17 +108,6 @@ class Plugin_Name_Settings_Second_Tab extends Plugin_Name_Settings_Page {
 				),
 
 				array(
-					'title'    => __( 'Select Page', PLUGIN_NAME_TEXT_DOMAIN ),
-					'desc'     => '<br/>' . sprintf( __( 'You can set a description here also.', PLUGIN_NAME_TEXT_DOMAIN ), admin_url( 'options-permalink.php' ) ),
-					'id'       => 'plugin_name_select_single_page_id',
-					'type'     => 'single_select_page',
-					'default'  => '',
-					'class'    => 'chosen_select_nostd',
-					'css'      => 'min-width:300px;',
-					'desc_tip' => __( 'You can select or search for a page.', PLUGIN_NAME_TEXT_DOMAIN ),
-				),
-
-				array(
 					'title'    => __( 'Select', PLUGIN_NAME_TEXT_DOMAIN ),
 					'desc'     => __( 'This example shows you options from an array().', PLUGIN_NAME_TEXT_DOMAIN ),
 					'id'       => 'plugin_name_select_array',
@@ -257,17 +246,6 @@ class Plugin_Name_Settings_Second_Tab extends Plugin_Name_Settings_Page {
 					'type'  => 'title',
 					'desc'  => '',
 					'id'    => 'section_one_options'
-				),
-
-				array(
-					'title'    => __( 'Select Page', PLUGIN_NAME_TEXT_DOMAIN ),
-					'desc'     => '<br/>' . sprintf( __( 'You can set a description here also.', PLUGIN_NAME_TEXT_DOMAIN ), admin_url( 'options-permalink.php' ) ),
-					'id'       => 'plugin_name_select_single_page_id',
-					'type'     => 'single_select_page',
-					'default'  => '',
-					'class'    => 'chosen_select_nostd',
-					'css'      => 'min-width:300px;',
-					'desc_tip' => __( 'You can select or search for a page.', PLUGIN_NAME_TEXT_DOMAIN ),
 				),
 
 				array(

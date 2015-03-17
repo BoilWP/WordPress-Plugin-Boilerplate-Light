@@ -33,7 +33,6 @@ class Plugin_Name_Admin_Menus {
 		// Add menu seperator
 		add_action( 'admin_init',        array( $this, 'add_admin_menu_separator' ) );
 		// Add menu order and highlighter
-		add_action( 'admin_head',        array( $this, 'menu_highlight' ) );
 		add_filter( 'menu_order',        array( $this, 'menu_order' ) );
 		//add_filter( 'parent_file',     array( $this, 'menu_parent_file' ) );
 		add_filter( 'custom_menu_order', array( $this, 'custom_menu_order' ) );
@@ -106,45 +105,8 @@ class Plugin_Name_Admin_Menus {
 			}
 		}
 
-		add_submenu_page( PLUGIN_NAME_PAGE, sprintf( __( '%s Status', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->title_name ), __( 'System Status', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->manage_plugin, PLUGIN_NAME_PAGE . '-status', array( $this, 'status_page' ) );
-
-		add_submenu_page( PLUGIN_NAME_PAGE, sprintf( __( '%s Tools', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->title_name ), __( 'Tools', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->manage_plugin, PLUGIN_NAME_PAGE . '-status&tab=tools', array( $this, 'status_page' ) );
-
-		//add_submenu_page( PLUGIN_NAME_PAGE, sprintf( __( '%s Import', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->title_name ), __( 'Import', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->manage_plugin, PLUGIN_NAME_PAGE . '-status&tab=import', array( &$this, 'port_page' ) );
-
-		//add_submenu_page( PLUGIN_NAME_PAGE, sprintf( __( '%s Export', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->title_name ), __( 'Export', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->manage_plugin, PLUGIN_NAME_PAGE . '-status&tab=export', array( &$this, 'port_page' ) );
-
 		register_setting( 'plugin_name_status_settings_fields', 'plugin_name_status_options' );
 	} // END admin_menu()
-
-	/**
-	 * Highlights the correct top level admin menu item.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @global $submenu
-	 * @global $parent_file
-	 * @global $submenu_file
-	 * @global $self
-	 * @return void
-	 */
-	public function menu_highlight() {
-		global $submenu, $parent_file, $submenu_file, $self;
-
-		$to_highlight_types = array( 'tools', 'import', 'export' );
-
-		if ( isset( $_GET['tab'] ) ) {
-			if ( in_array( $_GET['tab'], $to_highlight_types ) ) {
-				$submenu_file = 'admin.php?page=' . PLUGIN_NAME_PAGE . '-settings&tab=' . esc_attr( $_GET['tab'] );
-				$parent_file  = PLUGIN_NAME_PAGE;
-			}
-		}
-
-		/*if ( isset( $submenu['plugin-name'] ) && isset( $submenu['plugin-name'][1] ) ) {
-			$submenu['plugin-name'][0] = $submenu['plugin-name'][1];
-			unset( $submenu['plugin-name'][1] );
-		}*/
-	} // END menu_highlight()
 
 	/**
 	 * Reorder the plugin menu items in admin.
@@ -243,28 +205,6 @@ class Plugin_Name_Admin_Menus {
 		include_once( 'class-plugin-name-admin-settings.php' );
 		Plugin_Name_Admin_Settings::output();
 	}
-
-	/**
-	 * Initialize the Plugin Name status page.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 */
-	public function status_page() {
-		include_once( 'class-plugin-name-admin-status.php' );
-		Plugin_Name_Admin_Status::output();
-	} // END status_page()
-
-	/**
-	 * Initialize the Plugin Name import and export page.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 */
-	public function port_page() {
-		include_once( 'class-plugin-name-admin-import-export.php' );
-		Plugin_Name_Admin_Import_Export::output();
-	} // END port_page()
 
 } // END Plugin_Name_Admin_Menus class.
 

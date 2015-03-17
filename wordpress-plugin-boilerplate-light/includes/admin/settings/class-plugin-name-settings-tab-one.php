@@ -88,47 +88,6 @@ class Plugin_Name_Settings_First_Tab extends Plugin_Name_Settings_Page {
 			),
 
 			array(
-				'title' 	=> __( 'Select Country', PLUGIN_NAME_TEXT_DOMAIN ),
-				'desc' 		=> __( 'This gives you a list of countries. ', PLUGIN_NAME_TEXT_DOMAIN ),
-				'id' 		=> 'plugin_name_country_list',
-				'css' 		=> 'min-width:350px;',
-				'default'	=> 'GB',
-				'type' 		=> 'single_select_country',
-				'desc_tip'	=> true,
-			),
-
-			array(
-				'title' 	=> __( 'Multi Select Countries', PLUGIN_NAME_TEXT_DOMAIN ),
-				'desc' 		=> '',
-				'id' 		=> 'plugin_name_multi_countries',
-				'css' 		=> 'min-width: 350px;',
-				'default'	=> '',
-				'type' 		=> 'multi_select_countries'
-			),
-
-			array(
-				'title' 	=> __( 'Example Page', PLUGIN_NAME_TEXT_DOMAIN ),
-				'desc' 		=> __( 'You can set pages that the plugin requires by having them installed and selected automatically when the plugin is installed.', PLUGIN_NAME_TEXT_DOMAIN ),
-				'id' 		=> 'plugin_name_example_page_id',
-				'type' 		=> 'single_select_page',
-				'default'	=> '',
-				'class'		=> 'chosen_select_nostd',
-				'css' 		=> 'min-width:300px;',
-				'desc_tip'	=> true,
-			),
-
-			array(
-				'title' 	=> __( 'Shortcode Example Page', PLUGIN_NAME_TEXT_DOMAIN ),
-				'desc' 		=> __( 'This page has a shortcode applied when created by the plugin.', PLUGIN_NAME_TEXT_DOMAIN ),
-				'id' 		=> 'plugin_name_shortcode_page_id',
-				'type' 		=> 'single_select_page',
-				'default'	=> '',
-				'class'		=> 'chosen_select_nostd',
-				'css' 		=> 'min-width:300px;',
-				'desc_tip'	=> true,
-			),
-
-			array(
 				'title' 	=> __( 'Single Checkbox', PLUGIN_NAME_TEXT_DOMAIN ),
 				'desc' 		=> __( 'Can come in handy to display more options.', PLUGIN_NAME_TEXT_DOMAIN ),
 				'id' 		=> 'plugin_name_checkbox',

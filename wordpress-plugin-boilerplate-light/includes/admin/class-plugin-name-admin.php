@@ -25,8 +25,6 @@ class Plugin_Name_Admin {
 		// Actions
 		add_action( 'init',              array( $this, 'includes' ) );
 		add_action( 'admin_init',        array( $this, 'prevent_admin_access' ) );
-		add_action( 'current_screen',    array( $this, 'tour' ) );
-		add_action( 'current_screen',    array( $this, 'conditional_includes' ) );
 		add_action( 'admin_footer', 'plugin_name_print_js', 25 );
 		// Filters
 		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ) );
@@ -49,13 +47,8 @@ class Plugin_Name_Admin {
 
 		// Classes we only need if the ajax is not-ajax
 		if ( ! is_ajax() ) {
-			// Transifex Stats
-			include( 'class-plugin-name-transifex-api.php' );
-			include( 'class-plugin-name-transifex-stats.php' );
-
 			// Main Plugin
 			include( 'class-plugin-name-admin-menus.php' );
-			include( 'class-plugin-name-admin-welcome.php' );
 			include( 'class-plugin-name-admin-notices.php' );
 
 			// Plugin Help
@@ -64,45 +57,6 @@ class Plugin_Name_Admin {
 			}
 		}
 	} // END includes()
-
-	/**
-	 * This includes the plugin tour.
-	 *
-	 * @since  1.0.*
-	 * @access public
-	 */
-	public function tour() {
-		// Plugin Tour
-		$ignore_tour = get_option( 'plugin_name_ignore_tour' );
-
-		if ( !isset( $ignore_tour ) || !$ignore_tour ) {
-			//include( 'class-plugin-name-admin-pointers.php' );
-		}
-	} // END tour()
-
-	/**
-	 * Include admin files conditionally.
-	 *
-	 * @todo   Use this function to include content
-	 *         specifically for other WordPress pages.
-	 * @since  1.0.0
-	 * @access public
-	 */
-	public function conditional_includes() {
-		$screen = get_current_screen();
-
-		switch ( $screen->id ) {
-			case 'dashboard' :
-				// Include a file to load only for the dashboard.
-			break;
-			case 'users' :
-			case 'user' :
-			case 'profile' :
-			case 'user-edit' :
-				// Include a file to load only for the user pages.
-			break;
-		}
-	} // END conditional_includes()
 
 	/**
 	 * Prevent any user who cannot 'edit_posts'
