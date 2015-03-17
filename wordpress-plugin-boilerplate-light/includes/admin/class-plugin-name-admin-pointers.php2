@@ -1,0 +1,335 @@
+<?php
+/**
+ * Plugin Name Admin Pointers.
+ *
+ * Provides tip pointers in the admin to explain
+ * to the user what the area pointed at does or is.
+ *
+ * How to Use:
+ * Pointers are defined in an associative array and passed to the class upon instantiation.
+ * To add a pointer to the core of the plugin, simply create an array like so within "$pointers = apply_filters( 'plugin_name_admin_pointers', array() );"
+ *
+ * array(
+ *   'id' => 'xyz123',   // unique id for this pointer
+ *   'screen' => 'page', // this is the page hook we want our pointer to show on
+ *   'target' => '#element-selector', // the css selector for the pointer to be tied to, best to use ID's
+ *   'class' => 'wp-pointer plugin-name-pointer',
+ *   'width' => 320,
+ *   'title' => 'My ToolTip',
+ *   'content' => 'My tooltips Description',
+ *   'position' => array(
+ *      'edge' => 'top', //top, bottom, left, right
+ *      'align' => 'middle' //top, bottom, left, right, middle
+ *    )
+ * )
+ *
+ * @since    1.0.*
+ * @author   Your Name / Your Company Name
+ * @category Admin
+ * @package  Plugin Name
+ */
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+if ( ! class_exists( 'Plugin_Name_Admin_Pointers' ) ) {
+
+class Plugin_Name_Admin_Pointers {
+
+	public $screen_id;
+	public $valid;
+	public $pointers;
+
+	/**
+	 * Constructor.
+	 *
+	 * @since  1.0.*
+	 * @access public
+	 * @global $wp_version
+	 */
+	public function __construct() {
+		global $wp_version;
+
+		// Don't run on WordPress less than version 3.3
+		if ( version_compare( $wp_version, '3.3', '<' ) ) {
+			return;
+		}
+
+		$screen = get_current_screen();
+		$this->screen_id = $screen->id;
+
+		$this->register_pointers();
+
+		add_action( 'admin_enqueue_scripts', array( $this, 'add_pointers' ) );
+		add_action( 'admin_head',            array( $this, 'add_pointer_script') );
+	}
+
+	/**
+	 * Here you setup your pointers for your plugin.
+	 *
+	 * @todo rename 'plugin_name_admin_pointers'
+	 */
+	public function plugin_name_pointers() {
+		$pointers = apply_filters( 'plugin_name_admin_pointers', array(
+			array(
+				'order' => 1, // The order of this Pointer in relation to all Pointers for the page you set will determine at which point the Pointer will show in the Tour.
+				'id' => 'congratulations', // unique id for this pointer
+				'screen' => 'plugins', // this is the page hook we want our pointer to show on
+				'target' => '#toplevel_page_plugin-name a div:nth-child(3)', // the css selector for the pointer to be tied to, best to use ID's
+				'class' => 'wp-pointer plugin-name-pointer first-pointer',
+				'title' => __( 'Congratulations', PLUGIN_NAME_TEXT_DOMAIN ), // The Pointer title
+				'content' => __( sprintf( 'You\'ve just installed %s! Click "Start Tour" to view a quick introduction of this plugins boilerplate.', PLUGIN_NAME), PLUGIN_NAME_TEXT_DOMAIN ), // The Pointer content
+				'button' => array(
+					'label' => __( 'Start Tour', PLUGIN_NAME_TEXT_DOMAIN ),
+					'location' => admin_url( 'admin.php?page=' . PLUGIN_NAME_PAGE ),
+				),
+				'position' => array(
+					'edge' => 'left', //top, bottom, left, right
+					'align' => 'middle' //top, bottom, left, right, middle
+				)
+			),
+			array(
+				'order' => 2,
+				'id' => 'welcome',
+				'screen' => 'toplevel_page_plugin-name',
+				'target' => '.wrap.h2:first',
+				'class' => 'wp-pointer plugin-name-pointer shortcuts',
+				'title' => __( 'Dashboard', PLUGIN_NAME_TEXT_DOMAIN ), // The Pointer title
+				'content' => __( 'This is were the boilerplate is located in the admin side-menu. It is here you will find the backend of the plugins functions, settings and system status.<br><strong>About This Tour</strong>Clicking Next below takes you to the next page of the tour. If you want to stop this tour, click "Close".', PLUGIN_NAME_TEXT_DOMAIN ), // The Pointer content
+				'position' => array(
+					'edge' => 'top',
+					'align' => 'top'
+				)
+			),
+			array(
+				'order' => 3,
+				'id' => 'buttons',
+				'screen' => 'toplevel_page_plugin-name',
+				'target' => '.add-new-h2:first',
+				'class' => 'wp-pointer plugin-name-pointer shortcuts',
+				'title' => __( 'Shortcuts', PLUGIN_NAME_TEXT_DOMAIN ),
+				'content' => __( 'Can be useful for creating shortcuts, linking to other areas of the plugin or to an external site.', PLUGIN_NAME_TEXT_DOMAIN ),
+				'position' => array(
+					'edge' => 'top',
+					'align' => 'top'
+				)
+			),
+			array(
+				'order' => 4,
+				'id' => 'sublinks',
+				'screen' => 'toplevel_page_plugin-name',
+				'target' => '.subsubsub li a.current',
+				'class' => 'wp-pointer plugin-name-pointer sub-links',
+				'width' => 200,
+				'title' => __( 'Sections', PLUGIN_NAME_TEXT_DOMAIN ),
+				'content' => __( 'These sub-links allow you to display different content in there own sections.', PLUGIN_NAME_TEXT_DOMAIN ),
+				'button' => array(
+					'label' => __( 'Next', PLUGIN_NAME_TEXT_DOMAIN ),
+					'location' => admin_url( 'admin.php?page=' . PLUGIN_NAME_PAGE . '-settings' ),
+				),
+				'position' => array(
+					'edge' => 'top',
+					'align' => 'left'
+				),
+				//'show' => '',
+				//'hide' => ''
+			)
+		) );
+
+		return $pointers;
+	}
+
+	public function register_pointers() {
+		$pointers = $this->plugin_name_pointers();
+
+		foreach( $pointers as $pointer ) {
+
+			if( $pointer['screen'] == $this->screen_id ) {
+
+				$pointers[$pointer['id']] = array(
+					'order' => $pointer['order'],
+					'screen' => $pointer['screen'],
+					'target' => $pointer['target'],
+					'options' => array(
+						'pointerClass' => isset( $pointer['class'] ) ? $pointer['class'] : 'wp-pointer plugin-name-pointer',
+						'pointerWidth' => isset( $pointer['width'] ) ? $pointer['width'] : 320,
+						'content' => sprintf( '<h3> %s </h3> <p> %s </p>', $pointer['title'], $pointer['content'] ),
+						'tourButtons' => array(
+							'nextButton' => sprintf( '<a id=\"pointer-close\" class=\"button-primary\">%s</a>', __( 'Next', PLUGIN_NAME_TEXT_DOMAIN ) ),
+							'closeButton' => sprintf( '<a id=\"pointer-close\" style=\"margin-left:5px;\" class=\"button-secondary\">%s</a>', __( 'Close', PLUGIN_NAME_TEXT_DOMAIN ) )
+						),
+						'position' => $pointer['position'],
+						//'show' => '',
+						//'hide' => ''
+					)
+				);
+
+			}
+		}
+
+		$this->pointers = $pointers;
+	}
+
+	public function add_pointers() {
+		if ( ! current_user_can( 'manage_plugin_name' ) ) {
+			return;
+		}
+
+		if ( in_array( $this->screen_id, plugin_name_get_screen_ids() ) ) {
+			$pointers = $this->pointers;
+
+			if ( ! $pointers || ! is_array( $pointers ) )
+				return;
+
+			// Get dismissed pointers
+			$dismissed = explode( ',', (string) get_user_meta( get_current_user_id(), 'plugin_name_dismissed_pointers', true ) );
+			$valid_pointers = array();
+
+			// Check pointers and remove dismissed ones.
+			foreach ( $pointers as $pointer_id => $pointer ) {
+
+				// Make sure we have pointers & check if they have been dismissed
+				if ( in_array( $pointer_id, $dismissed ) || empty( $pointer )  || empty( $pointer_id ) || empty( $pointer['target'] ) || empty( $pointer['options'] ) )
+					continue;
+
+				$pointer['pointer_id'] = $pointer_id;
+
+				// Add the pointer to $valid_pointers array
+				$valid_pointers['pointers'][] =  $pointer;
+			}
+
+			// No valid pointers? Stop here.
+			if ( empty( $valid_pointers ) )
+				return;
+
+			$this->valid = $valid_pointers;
+
+			wp_enqueue_style( 'wp-pointer' );
+			wp_enqueue_script( 'wp-pointer' );
+
+			// Add pointer options to script.
+			/*wp_localize_script( PLUGIN_NAME_SLUG . '_pointer_script', 'plugin_name_pointers', apply_filters( 'plugin_name_pointers', array(
+				'start_tour' => __( 'Start Tour', PLUGIN_NAME_TEXT_DOMAIN ),
+				'close' => __( 'Close', PLUGIN_NAME_TEXT_DOMAIN ),
+				)
+			) );
+			wp_enqueue_script( PLUGIN_NAME_SLUG . '_pointer_script' );*/
+
+		} // if screen ID exists.
+	}
+
+	public function add_pointer_script() {
+		$pointers = $this->valid;
+
+		if( empty( $pointers ) )
+			return;
+
+		$pointers = json_encode( $pointers );
+
+		echo "<script type=\"text/javascript\">
+        jQuery(document).ready( function($) {
+            var WPHelpPointer = " . $pointers . ", setup;
+
+            var screen_id = '" . $this->screen_id . "';
+
+            //if( screen_id != '
+            $.each(WPHelpPointer.pointers, function(i) {
+              wp_help_pointer_open(i); // Preload all pointers.
+
+              pointer = WPHelpPointer.pointers[i];
+
+              var order = pointer.order; // Fetch the pointer order number
+
+              if( $('.wp-pointer').is(\":visible\") ) { // if a pointer is already open...
+
+                if( order > 1 ) { // ... check that the pointer is not the first one.
+
+                  $(pointer.target).pointer( options ).pointer('close'); // clost all pointers except the first.
+                  //pointerid = parseInt(openid) + 1;
+                }
+                else{
+                  wp_help_pointer_open(i); // Load the first pointer
+                }
+              }
+
+            });
+
+            function wp_help_pointer_open(i) {
+                pointer = WPHelpPointer.pointers[i];
+                options = $.extend( pointer.options, {
+                  buttons: function (event, t) {
+                    var button = jQuery('<a id=\"pointer-close\" style=\"margin-left:5px;\" class=\"button-secondary\">' + '" . __( 'Close', PLUGIN_NAME_TEXT_DOMAIN ) . "' + '</a>');
+                    button.bind('click.pointer', function () {
+                      t.element.pointer('close');
+                    });
+                    return button;
+                  },
+                  close: function() {
+                    $.post( ajaxurl, {
+                      pointer: pointer.pointer_id,
+                      action: 'dismiss-wp-pointer'
+                    });
+                  },
+                });
+                $(pointer.target).pointer( options ).pointer('open');
+            }
+
+            setup = function () {
+              $(pointer.pointer_id).pointer(WPHelpPointer).pointer('open');
+              if ( pointer.button ) {
+                jQuery('#pointer-close').after('<a id=\"pointer-primary\" class=\"button-primary\">' + ' . pointer.button.label . ' + '</a>');
+                jQuery('#pointer-primary').click(function () {
+                  document.location=\"' + pointer.button.location + '\";
+                });
+                jQuery('#pointer-close').click(function () {
+                  if ( $button1_function == '' ) {
+                    wp_setIgnore(\"tour\", \"wp-pointer-0\", \"" . esc_js( wp_create_nonce( 'wp-ignore' ) ) . "\");
+                  }
+                  else {
+                    window.location=\"' + pointer.button.location + '\";
+                  }
+                });
+              }
+            }
+
+            if (WPHelpPointer.position && WPHelpPointer.position.defer_loading) {
+              $(window).bind('load.wp-pointers', setup);
+            }
+            else {
+              $(document).ready(setup);
+            }
+
+            $('.wp-button-pointer-open-next').click(function(e) {
+              e.preventDefault();
+
+              if(typeof(jQuery().pointer) != 'undefined') { // make sure the pointer class exists
+
+                if(jQuery('.wp-pointer').is(\":visible\")) { // if a pointer is already open...
+                  var openid = jQuery('.wp-pointer:visible').attr(\"id\").replace('wp-pointer-',''); // ... note its id
+                  jQuery('#' + wp_button_pointer_array[openid].element).pointer('close'); // ... and close it
+                  var pointerid = parseInt(openid) + 1;
+                }
+                else {
+                  var pointerid = 1; // ... otherwise we want to open the first pointer
+                }
+
+                if(wp_button_pointer_array[pointerid] != undefined) { // check if next pointer exists
+                  jQuery('#' + wp_button_pointer_array[pointerid].element).pointer(wp_button_pointer_array[pointerid].options).pointer('open'); // and open it
+                  var nextid = pointerid + 1;
+                  if(wp_button_pointer_array[nextid] != undefined) { // check if another next pointer exists
+                    jQuery('#wp-pointer-' + pointerid + ' .wp-pointer-buttons').append('Next'); // and if so attach a 'next' link to the current pointer
+                  }
+                }
+              }
+            });
+
+        });
+        </script>";
+    }
+
+} // end class.
+
+} // end if class exists.
+
+return new Plugin_Name_Admin_Pointers();
+
+?>

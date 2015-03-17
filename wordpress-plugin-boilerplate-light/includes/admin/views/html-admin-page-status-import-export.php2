@@ -1,0 +1,146 @@
+<?php
+do_action( 'plugin_name_tools_import_export_before' );
+
+switch ( $port ) {
+	case "export" :
+		$port_title = __( 'Export Settings', PLUGIN_NAME_TEXT_DOMAIN );
+		$port_description = __( sprintf( 'Export the %s settings for this site as a .json file. This allows you to easily import the configuration into another site.', PLUGIN_NAME ), PLUGIN_NAME_TEXT_DOMAIN );
+		$submit_button = __( 'Export', PLUGIN_NAME_TEXT_DOMAIN );
+	break;
+
+	case "import" :
+		$port_title = __( 'Import Settings', PLUGIN_NAME_TEXT_DOMAIN );
+		$port_description = __( sprintf( 'Import the %s settings from a .json file. This file can be obtained by exporting the settings on another site using the export tool.', PLUGIN_NAME ), PLUGIN_NAME_TEXT_DOMAIN );
+		$submit_button = __( 'Import', PLUGIN_NAME_TEXT_DOMAIN );
+	break;
+} // end switch
+
+do_action( 'plugin_name_export_import_top' );
+?>
+<form method="post" enctype="multipart/form-data" action="<?php echo admin_url( 'admin.php?page=' . PLUGIN_NAME_PAGE . '-status&tab=' . $port ); ?>">
+	<table class="plugin_name_status_table widefat" cellspacing="0">
+		<thead class="tools">
+			<tr>
+				<th colspan="2"><?php echo $port_title; ?></th>
+			</tr>
+		</thead>
+		<tbody class="tools">
+			<tr>
+				<td>
+					<p>
+						<span class="description"><?php echo $port_description; ?></span>
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<p><input type="hidden" name="plugin_name_action" value="<?php echo $port; ?>_settings" /></p>
+
+	<p class="submit">
+			<?php wp_nonce_field( 'plugin_name_' . $port . '_nonce', 'plugin_name_' . $port . '_nonce' ); ?>
+			<?php submit_button( $submit_button, 'button-primary', 'submit', false ); ?>
+	</p>
+</form>
+<?php
+do_action( 'plugin_name_export_import_bottom' );
+
+do_action( 'plugin_name_tools_import_export_after' );
+
+/**
+ * This controls what settings can be exported and imported
+ * to another site using this plugin.
+ *
+ * @since  1.0.*
+ * @return array
+ */
+function allowed_settings_to_port() {
+	$tabs = apply_filters('plugin_name_allowed_export_settings', array(
+		array(
+			'id' => 'tab_one',
+		),
+		array(
+			'id' => 'tab_two',
+		),
+	) );
+
+	return $tabs;
+}
+
+/**
+ * Process a settings export that generates a
+ * .json file of the plugin settings.
+ *
+ * @since 1.0.*
+ * @return void
+ */
+function plugin_name_process_settings_export() {
+	if ( empty( $_POST['plugin_name_export_nonce'] ) )
+		return;
+
+	if ( ! wp_verify_nonce( $_POST['plugin_name_export_nonce'], 'plugin_name_export_nonce' ) )
+		return;
+
+	if ( ! current_user_can( Plugin_Name()->manage_plugin ) )
+		return;
+
+	$settings = array();
+
+	$tabs = allowed_settings_to_port();
+
+	foreach ( $tabs as $tab => $setting ) {
+		$settings[$setting->id] = get_option( 'plugin_name_' . $setting->id . '_settings' );
+	}
+
+	ignore_user_abort( true );
+
+	if ( ! ini_get( 'safe_mode' ) )
+		set_time_limit( 0 );
+
+	nocache_headers();
+	header( 'Content-Type: application/json; charset=utf-8' );
+	header( 'Content-Disposition: attachment; filename=plugin-name-settings-export-' . date( 'm-d-Y' ) . '.json' );
+	header( "Expires: 0" );
+
+	echo json_encode( $settings );
+	exit;
+}
+add_action( 'plugin_name_export_settings', 'plugin_name_process_settings_export' );
+
+/**
+ * Process a settings import from a .json file.
+ *
+ * @since  1.0.*
+ * @return void
+ */
+function plugin_name_process_settings_import() {
+	if ( empty( $_POST['plugin_name_import_nonce'] ) )
+		return;
+
+	if ( ! wp_verify_nonce( $_POST['plugin_name_import_nonce'], 'plugin_name_import_nonce' ) )
+		return;
+
+	if ( ! current_user_can( Plugin_Name()->manage_plugin ) )
+		return;
+
+	$import_file = $_FILES['import_file']['tmp_name'];
+
+	if ( empty( $import_file ) ) {
+		wp_die( __( 'Please upload a file to import', PLUGIN_NAME_TEXT_DOMAIN ) );
+	}
+
+	// Retrieve the settings from the file and convert the json object to an array
+	$settings = plugin_name_object_to_array( json_decode( file_get_contents( $import_file ) ) );
+
+	$tabs = allowed_settings_to_port();
+
+	foreach ( $tabs as $tab => $setting ) {
+		update_option( 'plugin_name_' . $setting->id . '_settings', $settings[$setting->id] );
+	}
+
+	wp_safe_redirect( admin_url( 'admin.php?page=' . PLUGIN_NAME_PAGE . '&tab=import' ) );
+	exit;
+}
+add_action( 'plugin_name_import_settings', 'plugin_name_process_settings_import' );
+
+?>
