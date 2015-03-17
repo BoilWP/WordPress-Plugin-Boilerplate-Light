@@ -1,0 +1,436 @@
+# WordPress Plugin Boilerplate Copyright (c) {2014}
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress Plugin Boilerplate Light 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/seb86/WordPress-Plugin-Boilerplate/"
+"issues\n"
+"POT-Creation-Date: 2015-03-17 13:40+0100\n"
+"PO-Revision-Date: 2015-03-17 13:42+0100\n"
+"Last-Translator: WordPress Plugin Boilerplate <mailme@sebastiendumont.com>\n"
+"Language-Team: WP-Translations <wpt@wp-translations.org>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c;_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/admin/class-plugin-name-admin-help.php:48
+#: includes/admin/class-plugin-name-admin.php:104
+#: includes/admin/views/html-admin-page.php:11
+#: wordpress-plugin-boilerplate.php:333
+msgid "Documentation"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-help.php:50
+#, php-format
+msgid ""
+"Thank you for using <strong>%s</strong> :) Should you need help using or "
+"extending %s please read the documentation."
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-help.php:52
+#, php-format
+msgid "%s Documentation"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-help.php:52
+msgid "Restart Tour"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-help.php:57
+#: wordpress-plugin-boilerplate.php:307
+msgid "Support"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-help.php:59
+#, php-format
+msgid ""
+"After <a href=\"%s\">reading the documentation</a>, for further assistance "
+"you can use the <a href=\"%s\">community forum</a>."
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-help.php:59
+msgid "Company Name"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-help.php:61
+msgid ""
+"Before asking for help we recommend checking the status page to identify any "
+"problems with your configuration."
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-help.php:63
+#: includes/admin/class-plugin-name-admin-help.php:72
+msgid "System Status"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-help.php:63
+msgid "Community Support"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-help.php:68
+msgid "Found a bug?"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-help.php:70
+#, php-format
+msgid ""
+"If you find a bug within <strong>%s</strong> you can create a ticket via <a "
+"href=\"%s\">Github issues</a>. Ensure you read the <a href=\"%s"
+"\">contribution guide</a> prior to submitting your report. Be as descriptive "
+"as possible and please include your <a href=\"%s\">system status report</a>."
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-help.php:72
+msgid "Report a bug"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-help.php:77
+msgid "For more information:"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-help.php:78
+#, php-format
+msgid "About %s"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-help.php:79
+msgid "Project on WordPress.org"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-help.php:80
+msgid "Project on Github"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-menus.php:84
+#: includes/admin/class-plugin-name-admin-menus.php:88
+#: includes/admin/class-plugin-name-admin-menus.php:104
+#, php-format
+msgid "%s Settings"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-menus.php:84
+#: includes/admin/class-plugin-name-admin-menus.php:88
+#: wordpress-plugin-boilerplate.php:306
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-menus.php:93
+#: includes/admin/settings/class-plugin-name-settings-tab-one.php:29
+#: wordpress-plugin-boilerplate.php:634
+msgid "First Tab"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-menus.php:97
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:29
+#: wordpress-plugin-boilerplate.php:635
+msgid "Second Tab"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-settings.php:73
+msgid "Action failed. Please refresh the page and retry."
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-settings.php:81
+msgid "Your settings have been saved."
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-settings.php:189
+#: wordpress-plugin-boilerplate.php:630
+msgid "The changes you made will be lost if you navigate away from this page."
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-settings.php:543
+msgid "Hard Crop?"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin-settings.php:566
+msgid "Select a page&hellip;"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin.php:103
+#: includes/admin/views/html-admin-page.php:10
+msgid "Website"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin.php:121
+#, php-format
+msgid ""
+"If you like <strong>%1$s</strong> please leave a <a href=\"%2$s\" target="
+"\"_blank\">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating on <a href=\"%2$s"
+"\" target=\"_blank\">WordPress.org</a>. A huge thank you in advance!"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin.php:151
+msgid "Contribute"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin.php:152
+msgid "Report Bugs"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin.php:153
+msgid "Translate"
+msgstr ""
+
+#: includes/admin/class-plugin-name-admin.php:162
+#, php-format
+msgid "%s Version"
+msgstr ""
+
+#: includes/admin/class-plugin-name-install.php:191
+msgid "What's new:"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-one.php:68
+msgid "Settings Title"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-one.php:75
+msgid "Subscriber Access"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-one.php:76
+msgid "Prevent users from accessing WordPress admin."
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-one.php:83
+msgid "Secure Content"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-one.php:84
+msgid ""
+"Keep your site secure by forcing SSL (HTTPS) on site (an SSL Certificate is "
+"required)."
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-one.php:91
+msgid "Single Checkbox"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-one.php:92
+msgid "Can come in handy to display more options."
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-one.php:99
+msgid "Single Input (Text) "
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-one.php:102
+msgid "This admin setting can be hidden via the checkbox above."
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-one.php:109
+msgid "Single Textarea "
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-one.php:112
+msgid ""
+"You can allow the user to use this field to enter their own CSS or HTML code."
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:51
+msgid "Section One"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:52
+#: includes/admin/views/html-admin-page.php:28
+msgid "Section Two"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:104
+msgid "Section Two Options"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:111
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:252
+msgid "Select"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:112
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:253
+msgid "This example shows you options from an array()."
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:119
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:134
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:156
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:260
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:275
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:297
+msgid "Yes"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:120
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:135
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:157
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:261
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:276
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:298
+msgid "No"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:126
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:267
+msgid "MultiSelect"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:127
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:268
+msgid ""
+"This example shows you the ability to select multi options from an array()."
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:141
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:282
+msgid "Checkbox"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:142
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:283
+msgid "Checkbox option"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:149
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:290
+msgid "Radio"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:150
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:291
+msgid "Radio option"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:162
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:303
+msgid "Number"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:163
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:304
+msgid "Use this field for numbered options."
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:176
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:317
+msgid "Color"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:177
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:318
+msgid "Use this field for color picking."
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:186
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:327
+msgid "Group Checkboxes"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:187
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:328
+msgid "Checkbox One"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:196
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:337
+msgid "Checkbox Two"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:205
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:346
+msgid "Email"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:214
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:355
+msgid "Password"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:223
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:364
+msgid "Image Size"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:224
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:365
+msgid "Use this field option to save multiple settings for an image size"
+msgstr ""
+
+#: includes/admin/settings/class-plugin-name-settings-tab-two.php:245
+msgid "Section One Options"
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:27
+msgid "Default"
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:29
+msgid "Section Three"
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:54
+msgid ""
+"You can use this page to place the main back feature of your plugin. Place "
+"links at the end of your header and set the page into sections."
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:55
+msgid ""
+"These sections can then display different content based on the section the "
+"user is viewing."
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:56
+msgid ""
+"There are many actions and filters in place to allow you to add and display "
+"anything you need."
+msgstr ""
+
+#: includes/admin/views/html-admin-settings.php:30
+msgid "Save changes"
+msgstr ""
+
+#: includes/admin/views/html-notice-theme-support.php:6
+msgid "Theme Integration Guide"
+msgstr ""
+
+#: includes/admin/views/html-notice-theme-support.php:6
+msgid "Hide this notice"
+msgstr ""
+
+#: includes/admin/views/html-notice-update.php:5
+#, php-format
+msgid ""
+"<strong>%s Data Update Required</strong> &#8211; We just need to update your "
+"install to the latest version"
+msgstr ""
+
+#: includes/admin/views/html-notice-update.php:6
+msgid "Run the updater"
+msgstr ""
+
+#: includes/admin/views/html-notice-update.php:10
+msgid ""
+"It is strongly recommended that you backup your database before proceeding. "
+"Are you sure you wish to run the updater now?"
+msgstr ""
+
+#: wordpress-plugin-boilerplate.php:247 wordpress-plugin-boilerplate.php:259
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: wordpress-plugin-boilerplate.php:433
+#, php-format
+msgid "Sorry, %s requires WordPress "
+msgstr ""
+
+#: wordpress-plugin-boilerplate.php:628
+msgid "No results"
+msgstr ""

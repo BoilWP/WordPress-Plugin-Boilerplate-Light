@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.com
+
+[wordpress-plugin-boilerplate-light.wordpress-plugin-boilerplate-light]
+file_filter = wordpress-plugin-boilerplate-light/languages/wordpress-plugin-boilerplate-light-<lang>.po
+source_file = wordpress-plugin-boilerplate-light/languages/wordpress-plugin-boilerplate-light.pot
+source_lang = en_US
+type = PO

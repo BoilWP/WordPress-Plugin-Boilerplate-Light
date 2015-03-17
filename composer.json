@@ -1,0 +1,21 @@
+{
+    "name": "BoilWP/WordPress-Plugin-Boilerplate-Light",
+    "description": "WordPress Plugin Boilerplate-Light",
+    "keywords": ["wordpress", "plugin", "boilerplate"],
+    "homepage": "http://boilwp.com",
+    "license": "GPL-2.0+",
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "authors": [
+        {
+            "name": "Sebastien Dumont",
+            "homepage": "http://www.sebastiendumont.com"
+        },
+    ],
+    "type": "wordpress-plugin",
+    "require": {
+        "composer/installers": "~1.0"
+    },
+    "minimum-stability": "master"
+}
