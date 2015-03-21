@@ -99,6 +99,14 @@ class Plugin_Name_Settings_First_Tab extends Plugin_Name_Settings_Page {
 				'autoload' 	=> false
 			),
 
+			array(
+				'title' 	=> __( 'Remove all data on uninstall', PLUGIN_NAME_TEXT_DOMAIN ),
+				'desc' 		=> __( 'This will delete all data when uninstalling via Plugins > Delete.', PLUGIN_NAME_TEXT_DOMAIN ),
+				'id' 		=> 'plugin_name_uninstall_data',
+				'default'	=> 'no',
+				'type' 		=> 'checkbox'
+			),
+
 			array( 'type' => 'sectionend', 'id' => $this->id . '_options'),
 
 		)); // End general settings
