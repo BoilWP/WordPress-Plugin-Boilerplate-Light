@@ -27,10 +27,8 @@ function plugin_name_get_screen_ids() {
 		'toplevel_page_' . $plugin_name_screen_id,
 		$plugin_name_screen_id . '_page_' . $plugin_name_screen_id . '_settings',
 		$plugin_name_screen_id . '_page_' . $plugin_name_screen_id . '-settings',
-		$plugin_name_screen_id . '_page_' . $plugin_name_screen_id . '-status',
 		$menu_name . '_page_' . $plugin_name_screen_id . '_settings',
 		$menu_name . '_page_' . $plugin_name_screen_id . '-settings',
-		$menu_name . '_page_' . $plugin_name_screen_id . '-status',
 	) );
 } // END plugin_name_get_screen_ids()
 

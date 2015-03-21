@@ -72,14 +72,6 @@ class Plugin_Name_Settings_First_Tab extends Plugin_Name_Settings_Page {
 			),
 
 			array(
-				'title' 	=> __( 'Subscriber Access', PLUGIN_NAME_TEXT_DOMAIN ),
-				'desc' 		=> __( 'Prevent users from accessing WordPress admin.', PLUGIN_NAME_TEXT_DOMAIN ),
-				'id' 		=> 'plugin_name_lock_down_admin',
-				'default'	=> 'no',
-				'type' 		=> 'checkbox',
-			),
-
-			array(
 				'title' 	=> __( 'Single Checkbox', PLUGIN_NAME_TEXT_DOMAIN ),
 				'desc' 		=> __( 'Can come in handy to display more options.', PLUGIN_NAME_TEXT_DOMAIN ),
 				'id' 		=> 'plugin_name_checkbox',

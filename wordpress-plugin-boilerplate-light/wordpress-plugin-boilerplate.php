@@ -3,7 +3,7 @@
  * Plugin Name:       WordPress Plugin Boilerplate Light
  * Plugin URI:        https://github.com/BoilWP/WordPress-Plugin-Boilerplate-Light
  * Description:       The best light WordPress plugin boilerplate you will ever need, comes prepaired with settings control panel.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Sébastien Dumont
  * Author URI:        http://www.sebastiendumont.com
  * License:           GPL-2.0+
@@ -90,7 +90,7 @@ final class Plugin_Name {
 	 * @access public
 	 * @var    string
 	 */
-	public $version = "1.0.0";
+	public $version = "1.0.1";
 
 	/**
 	 * The WordPress version the plugin requires minumum.
@@ -399,7 +399,7 @@ final class Plugin_Name {
 		if ( ! defined( 'PLUGIN_NAME_GITHUB_REPO_URI' ) )       define( 'PLUGIN_NAME_GITHUB_REPO_URI', $this->github_repo_url );
 
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		define( 'PLUGIN_NAME_SCRIPT_MODE', $suffix );
+		if ( ! defined( 'PLUGIN_NAME_SCRIPT_MODE' ) )           define( 'PLUGIN_NAME_SCRIPT_MODE', $suffix );
 	} // END define_constants()
 
 	/**
@@ -490,8 +490,7 @@ final class Plugin_Name {
 	 */
 	public function frontend_includes() {
 		// Functions
-		include_once( 'includes/plugin-name-template-hooks.php' ); // Include template hooks for themes to remove/modify them
-		include_once( 'includes/plugin-name-functions.php' );      // Contains functions for various front-end events
+		include_once( 'includes/plugin-name-functions.php' ); // Contains functions for various front-end events
 	} // END frontend_includes()
 
 	/**
@@ -499,7 +498,6 @@ final class Plugin_Name {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @filter plugin_name_force_ssl_filter
 	 */
 	public function init_plugin_name() {
 		// Before init action
@@ -579,18 +577,6 @@ final class Plugin_Name {
 	} // END plugin_path()
 
 	/**
-	 * Get the plugin template path.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @filter plugin_name_template_path
-	 * @return string
-	 */
-	public function template_path() {
-		return apply_filters( 'plugin_name_template_path', 'plugin-name/' );
-	} // END template_path()
-
-	/**
 	 * Registers and enqueues stylesheets and javascripts
 	 * for the administration panel and the front of the site.
 	 *
@@ -656,8 +642,8 @@ final class Plugin_Name {
 	 *
 	 * @since  1.0.0
 	 * @access private
-	 * @param  string  $name	    The ID to register with WordPress.
-	 * @param  string  $file_path	The path to the actual file.
+	 * @param  string  $name      The ID to register with WordPress.
+	 * @param  string  $file_path The path to the actual file.
 	 * @param  bool    $is_script Optional, argument for if the incoming file_path is a JavaScript source file.
 	 * @param  array   $support   Optional, for requiring other javascripts for the source file you are calling.
 	 * @param  string  $version   Optional, can match the version of the plugin or version of the source file.
@@ -681,6 +667,7 @@ final class Plugin_Name {
 		} // end if
 
 		wp_enqueue_style( 'wp-color-picker' );
+
 		if ( is_admin() && $wp_version >= '3.8' ) {
 			wp_enqueue_style( 'dashicons' ); // Loads only in WordPress 3.8 and up.
 		}
