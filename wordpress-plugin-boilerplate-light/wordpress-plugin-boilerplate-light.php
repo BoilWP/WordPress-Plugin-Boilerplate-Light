@@ -125,34 +125,31 @@ final class Plugin_Name {
 	/**
 	 * The WordPress.org Plugin URI.
 	 *
-	 * @todo    Replace 'your-plugin-name' with the name of the
-	 *          plugin slug given for your wordpress repository
+	 * @todo    Replace 'plugin-name' with the name of the plugin slug given for your wordpress repository.
 	 * @since   1.0.0
-	 * @example https://wordpress.org/plugins/your-plugin-name
+	 * @example https://wordpress.org/plugins/plugin-name
 	 * @access  public
 	 * @var     string
 	 */
-	public $wp_plugin_url = "https://wordpress.org/plugins/your-plugin-name";
+	public $wp_plugin_url = "https://wordpress.org/plugins/plugin-name";
 
 	/**
 	 * The WordPress.org Plugin Support URI.
 	 *
-	 * @todo    Replace 'your-plugin-name' with the name of the
-	 *          plugin slug given for your wordpress repository
+	 * @todo    Replace 'plugin-name' with the name of the plugin slug given for your wordpress repository.
 	 * @since   1.0.0
 	 * @example https://wordpress.org/support/plugin/your-plugin-name
 	 * @access  public
 	 * @var     string
 	 */
-	public $wp_plugin_support_url = "https://wordpress.org/support/plugin/your-plugin-name";
+	public $wp_plugin_support_url = "https://wordpress.org/support/plugin/plugin-name";
 
 	/**
 	 * The WordPress.org Plugin Review URI.
 	 *
-	 * @todo    Replace 'your-plugin-name' with the name of the
-	 *          plugin slug given for your wordpress repository
-	 * @since   1.0.2
-	 * @example https://wordpress.org/support/view/plugin-reviews/your-plugin-name
+	 * @todo    Replace 'plugin-name' with the name of the plugin slug given for your wordpress repository.
+	 * @since   1.0.0
+	 * @example https://wordpress.org/support/view/plugin-reviews/plugin-name
 	 * @access  public
 	 * @var     string
 	 */
@@ -378,7 +375,7 @@ final class Plugin_Name {
 	 * Define Constants
 	 *
 	 * @todo   1. Change 'PLUGIN_NAME' to the name of the plugin.
-	 *         2. Change 'plugin-name' with the plugin slug of your plugin on "WordPress.org"
+	 * @todo   2. Change 'plugin-name' with the plugin slug of your plugin on "WordPress.org"
 	 * @since  1.0.0
 	 * @access private
 	 */

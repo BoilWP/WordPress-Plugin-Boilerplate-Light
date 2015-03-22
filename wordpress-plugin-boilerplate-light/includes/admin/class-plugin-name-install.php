@@ -68,8 +68,7 @@ class Plugin_Name_Install {
 	/**
 	 * Install Plugin Name
 	 *
-	 * @todo   Change the 'page-slug' to the page slug
-	 *         of the main page this plugin needs.
+	 * @todo   Change the 'page-slug' to the page slug of the main page this plugin needs.
 	 * @since  1.0.0
 	 * @access public
 	 */
@@ -138,8 +137,7 @@ class Plugin_Name_Install {
 	/**
 	 * Delete all plugin options.
 	 *
-	 * @todo   Replace 'plugin_name' with the prefix
-	 *         your plugin options begin with.
+	 * @todo   Replace the prefix 'plugin_name' with your own for the beggining of your plugin options.
 	 * @since  1.0.0
 	 * @access public
 	 * @global $wpdb

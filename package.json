@@ -5,7 +5,7 @@
   "homepage": "http://www.sebastiendumont.com/plugins/boilerplates/wordpress-plugin-boilerplate/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BoilWP/WordPress-Plugin-Boilerplate.git"
+    "url": "https://github.com/BoilWP/WordPress-Plugin-Boilerplate-Light.git"
   },
   "private": true,
   "main": "Gruntfile.js",

@@ -65,46 +65,46 @@ class Plugin_Name_Settings_First_Tab extends Plugin_Name_Settings_Page {
 		return apply_filters( 'plugin_name_' . $this->id . '_settings', array(
 
 			array(
-				'title' 	=> __( 'Settings Title', PLUGIN_NAME_TEXT_DOMAIN ),
-				'type' 		=> 'title',
-				'desc' 		=> '',
-				'id' 		=> $this->id . '_options'
+				'title' => __( 'Settings Title', PLUGIN_NAME_TEXT_DOMAIN ),
+				'type'  => 'title',
+				'desc'  => '',
+				'id'    => $this->id . '_options'
 			),
 
 			array(
-				'title' 	=> __( 'Single Checkbox', PLUGIN_NAME_TEXT_DOMAIN ),
-				'desc' 		=> __( 'Can come in handy to display more options.', PLUGIN_NAME_TEXT_DOMAIN ),
-				'id' 		=> 'plugin_name_checkbox',
-				'default'	=> 'no',
-				'type' 		=> 'checkbox'
+				'title'   => __( 'Single Checkbox', PLUGIN_NAME_TEXT_DOMAIN ),
+				'desc'    => __( 'Can come in handy to display more options.', PLUGIN_NAME_TEXT_DOMAIN ),
+				'id'      => 'plugin_name_checkbox',
+				'default' => 'no',
+				'type'    => 'checkbox'
 			),
 
 			array(
-				'title' 	=> __( 'Single Input (Text) ', PLUGIN_NAME_TEXT_DOMAIN ),
-				'desc' 		=> '',
-				'id' 		=> 'plugin_name_input_text',
-				'default'	=> __( 'This admin setting can be hidden via the checkbox above.', PLUGIN_NAME_TEXT_DOMAIN ),
-				'type' 		=> 'text',
-				'css' 		=> 'min-width:300px;',
-				'autoload' 	=> false
+				'title'    => __( 'Single Input (Text) ', PLUGIN_NAME_TEXT_DOMAIN ),
+				'desc'     => '',
+				'id'       => 'plugin_name_input_text',
+				'default'  => __( 'This admin setting can be hidden via the checkbox above.', PLUGIN_NAME_TEXT_DOMAIN ),
+				'type'     => 'text',
+				'css'      => 'min-width:300px;',
+				'autoload' => false
 			),
 
 			array(
-				'title' 	=> __( 'Single Textarea ', PLUGIN_NAME_TEXT_DOMAIN ),
-				'desc' 		=> '',
-				'id' 		=> 'plugin_name_input_textarea',
-				'default'	=> __( 'You can allow the user to use this field to enter their own CSS or HTML code.', PLUGIN_NAME_TEXT_DOMAIN ),
-				'type' 		=> 'textarea',
-				'css' 		=> 'min-width:300px;',
-				'autoload' 	=> false
+				'title'    => __( 'Single Textarea ', PLUGIN_NAME_TEXT_DOMAIN ),
+				'desc'     => '',
+				'id'       => 'plugin_name_input_textarea',
+				'default'  => __( 'You can allow the user to use this field to enter their own CSS or HTML code.', PLUGIN_NAME_TEXT_DOMAIN ),
+				'type'     => 'textarea',
+				'css'      => 'min-width:300px;',
+				'autoload' => false
 			),
 
 			array(
-				'title' 	=> __( 'Remove all data on uninstall', PLUGIN_NAME_TEXT_DOMAIN ),
-				'desc' 		=> __( 'This will delete all data when uninstalling via Plugins > Delete.', PLUGIN_NAME_TEXT_DOMAIN ),
-				'id' 		=> 'plugin_name_uninstall_data',
-				'default'	=> 'no',
-				'type' 		=> 'checkbox'
+				'title'   => __( 'Remove all data on uninstall', PLUGIN_NAME_TEXT_DOMAIN ),
+				'desc'    => __( 'This will delete all data when uninstalling via Plugins > Delete.', PLUGIN_NAME_TEXT_DOMAIN ),
+				'id'      => 'plugin_name_uninstall_data',
+				'default' => 'no',
+				'type'    => 'checkbox'
 			),
 
 			array( 'type' => 'sectionend', 'id' => $this->id . '_options'),

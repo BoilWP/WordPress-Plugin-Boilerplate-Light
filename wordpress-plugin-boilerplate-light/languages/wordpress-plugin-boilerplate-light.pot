@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: WordPress Plugin Boilerplate Light 1.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/seb86/WordPress-Plugin-Boilerplate/"
 "issues\n"
-"POT-Creation-Date: 2015-03-21 21:51+0100\n"
-"PO-Revision-Date: 2015-03-21 21:51+0100\n"
+"POT-Creation-Date: 2015-03-22 15:25+0100\n"
+"PO-Revision-Date: 2015-03-22 15:27+0100\n"
 "Last-Translator: WordPress Plugin Boilerplate <mailme@sebastiendumont.com>\n"
 "Language-Team: WP-Translations <wpt@wp-translations.org>\n"
 "Language: en_US\n"
@@ -23,8 +23,8 @@ msgstr ""
 
 #: includes/admin/class-plugin-name-admin-help.php:48
 #: includes/admin/class-plugin-name-admin.php:78
-#: includes/admin/views/html-admin-page.php:11
-#: wordpress-plugin-boilerplate.php:333
+#: includes/admin/views/html-admin-page.php:15
+#: wordpress-plugin-boilerplate-light.php:330
 msgid "Documentation"
 msgstr ""
 
@@ -41,7 +41,7 @@ msgid "%s Documentation"
 msgstr ""
 
 #: includes/admin/class-plugin-name-admin-help.php:57
-#: wordpress-plugin-boilerplate.php:307
+#: wordpress-plugin-boilerplate-light.php:304
 msgid "Support"
 msgstr ""
 
@@ -99,19 +99,19 @@ msgstr ""
 
 #: includes/admin/class-plugin-name-admin-menus.php:83
 #: includes/admin/class-plugin-name-admin-menus.php:87
-#: wordpress-plugin-boilerplate.php:306
+#: wordpress-plugin-boilerplate-light.php:303
 msgid "Settings"
 msgstr ""
 
 #: includes/admin/class-plugin-name-admin-menus.php:92
 #: includes/admin/settings/class-plugin-name-settings-tab-one.php:29
-#: wordpress-plugin-boilerplate.php:619
+#: wordpress-plugin-boilerplate-light.php:616
 msgid "First Tab"
 msgstr ""
 
 #: includes/admin/class-plugin-name-admin-menus.php:96
 #: includes/admin/settings/class-plugin-name-settings-tab-two.php:29
-#: wordpress-plugin-boilerplate.php:620
+#: wordpress-plugin-boilerplate-light.php:617
 msgid "Second Tab"
 msgstr ""
 
@@ -124,7 +124,7 @@ msgid "Your settings have been saved."
 msgstr ""
 
 #: includes/admin/class-plugin-name-admin-settings.php:189
-#: wordpress-plugin-boilerplate.php:615
+#: wordpress-plugin-boilerplate-light.php:612
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 
@@ -137,7 +137,7 @@ msgid "Select a page&hellip;"
 msgstr ""
 
 #: includes/admin/class-plugin-name-admin.php:77
-#: includes/admin/views/html-admin-page.php:10
+#: includes/admin/views/html-admin-page.php:14
 msgid "Website"
 msgstr ""
 
@@ -162,7 +162,7 @@ msgstr ""
 msgid "%s Version"
 msgstr ""
 
-#: includes/admin/class-plugin-name-install.php:191
+#: includes/admin/class-plugin-name-install.php:189
 msgid "What's new:"
 msgstr ""
 
@@ -208,7 +208,7 @@ msgid "Section One"
 msgstr ""
 
 #: includes/admin/settings/class-plugin-name-settings-tab-two.php:52
-#: includes/admin/views/html-admin-page.php:28
+#: includes/admin/views/html-admin-page.php:32
 msgid "Section Two"
 msgstr ""
 
@@ -334,70 +334,63 @@ msgstr ""
 msgid "Section One Options"
 msgstr ""
 
-#: includes/admin/views/html-admin-page.php:27
+#: includes/admin/views/html-admin-page.php:31
 msgid "Default"
 msgstr ""
 
-#: includes/admin/views/html-admin-page.php:29
+#: includes/admin/views/html-admin-page.php:33
 msgid "Section Three"
 msgstr ""
 
-#: includes/admin/views/html-admin-page.php:54
+#: includes/admin/views/html-admin-page.php:58
 msgid ""
 "You can use this page to place the main back feature of your plugin. Place "
 "links at the end of your header and set the page into sections."
 msgstr ""
 
-#: includes/admin/views/html-admin-page.php:55
+#: includes/admin/views/html-admin-page.php:59
 msgid ""
 "These sections can then display different content based on the section the "
 "user is viewing."
 msgstr ""
 
-#: includes/admin/views/html-admin-page.php:56
+#: includes/admin/views/html-admin-page.php:60
 msgid ""
 "There are many actions and filters in place to allow you to add and display "
 "anything you need."
 msgstr ""
 
-#: includes/admin/views/html-admin-settings.php:30
+#: includes/admin/views/html-admin-settings.php:28
 msgid "Save changes"
 msgstr ""
 
-#: includes/admin/views/html-notice-theme-support.php:6
-msgid "Theme Integration Guide"
-msgstr ""
-
-#: includes/admin/views/html-notice-theme-support.php:6
-msgid "Hide this notice"
-msgstr ""
-
-#: includes/admin/views/html-notice-update.php:5
+#: includes/admin/views/html-notice-update.php:9
 #, php-format
 msgid ""
 "<strong>%s Data Update Required</strong> &#8211; We just need to update your "
 "install to the latest version"
 msgstr ""
 
-#: includes/admin/views/html-notice-update.php:6
+#: includes/admin/views/html-notice-update.php:10
 msgid "Run the updater"
 msgstr ""
 
-#: includes/admin/views/html-notice-update.php:10
+#: includes/admin/views/html-notice-update.php:14
 msgid ""
 "It is strongly recommended that you backup your database before proceeding. "
 "Are you sure you wish to run the updater now?"
 msgstr ""
 
-#: wordpress-plugin-boilerplate.php:247 wordpress-plugin-boilerplate.php:259
+#: wordpress-plugin-boilerplate-light.php:244
+#: wordpress-plugin-boilerplate-light.php:256
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: wordpress-plugin-boilerplate.php:432
+#: wordpress-plugin-boilerplate-light.php:429
 #, php-format
 msgid "Sorry, %s requires WordPress "
 msgstr ""
 
-#: wordpress-plugin-boilerplate.php:613
+#: wordpress-plugin-boilerplate-light.php:610
 msgid "No results"
 msgstr ""
