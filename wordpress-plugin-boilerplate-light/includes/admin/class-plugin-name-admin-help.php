@@ -49,14 +49,14 @@ class Plugin_Name_Admin_Help {
 			'content' =>
 				'<p>' . sprintf( __( 'Thank you for using <strong>%s</strong> :) Should you need help using or extending %s please read the documentation.', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->name, Plugin_Name()->name ) . '</p>' .
 
-				'<p><a href="' . Plugin_Name()->doc_url . '" class="button button-primary">' . sprintf( __( '%s Documentation', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->name ) . '</a> <!--a href="#" class="button">' . __( 'Restart Tour', PLUGIN_NAME_TEXT_DOMAIN ) . '</a--></p>'
+				'<p><a href="' . Plugin_Name()->doc_url . '" class="button button-primary">' . sprintf( __( '%s Documentation', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->name ) . '</a></p>'
 		) );
 
 		$screen->add_help_tab( array(
 			'id'      => 'plugin_name_support_tab',
 			'title'   => __( 'Support', PLUGIN_NAME_TEXT_DOMAIN ),
 			'content' =>
-				'<p>' . sprintf( __( 'After <a href="%s">reading the documentation</a>, for further assistance you can use the <a href="%s">community forum</a>.', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->doc_url, Plugin_Name()->wp_plugin_support_url, __( 'Company Name' , PLUGIN_NAME_TEXT_DOMAIN ) ) . '</p>' .
+				'<p>' . sprintf( __( 'After <a href="%s">reading the documentation</a>, for further assistance you can use the <a href="%s">community forum</a>.', PLUGIN_NAME_TEXT_DOMAIN ), Plugin_Name()->doc_url, Plugin_Name()->wp_plugin_support_url ) . '</p>' .
 
 				'<p><a href="' . Plugin_Name()->wp_plugin_support_url . '" class="button button-primary">' . __( 'Community Support', PLUGIN_NAME_TEXT_DOMAIN ) . '</a></p>'
 		) );

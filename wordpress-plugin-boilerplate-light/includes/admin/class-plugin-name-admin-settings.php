@@ -568,63 +568,6 @@ class Plugin_Name_Admin_Settings {
 					</tr><?php
 					break;
 
-				// Single country selects
-				/*case 'single_select_country':
-					$country_setting = (string) self::get_option( $value['id'] );
-					$countries 		 = Plugin_Name()->countries->countries;
-
-					if ( strstr( $country_setting, ':' ) ) {
-						$country_setting 	= explode( ':', $country_setting );
-						$country 			= current( $country_setting );
-						$state 				= end( $country_setting );
-					}
-					else {
-						$country 	= $country_setting;
-						$state 		= '*';
-					}
-					?><tr valign="top">
-						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
-							<?php echo $tip; ?>
-						</th>
-						<td class="forminp"><select name="<?php echo esc_attr( $value['id'] ); ?>" style="<?php echo esc_attr( $value['css'] ); ?>" data-placeholder="<?php _e( 'Choose a country&hellip;', PLUGIN_NAME_TEXT_DOMAIN ); ?>" title="Country" class="chosen_select">
-							<?php Plugin_Name()->countries->country_dropdown_options( $country, $state ); ?>
-						</select> <?php echo $description; ?>
-						</td>
-					</tr><?php
-					break;*/
-
-				// Country multiselects
-				/*case 'multi_select_countries':
-					$selections = (array) self::get_option( $value['id'] );
-
-					if ( ! empty( $value['options'] ) ) {
-						$countries = $value['options'];
-					}
-					else {
-						$countries = Plugin_Name()->countries->countries;
-					}
-
-					asort( $countries );
-					?><tr valign="top">
-						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
-							<?php echo $tip; ?>
-						</th>
-						<td class="forminp">
-							<select multiple="multiple" name="<?php echo esc_attr( $value['id'] ); ?>[]" style="width:350px" data-placeholder="<?php _e( 'Choose countries&hellip;', PLUGIN_NAME_TEXT_DOMAIN ); ?>" title="Country" class="chosen_select">
-								<?php
-								if ( $countries ) {
-									foreach ( $countries as $key => $val ) {
-										echo '<option value="' . esc_attr( $key ) . '" ' . selected( in_array( $key, $selections ), true, false ).'>' . $val . '</option>';
-									}
-								}
-								?>
-							</select> <?php if ( $description ) { echo $description; } ?> </br><a class="select_all button" href="#"><?php _e( 'Select all', PLUGIN_NAME_TEXT_DOMAIN ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', PLUGIN_NAME_TEXT_DOMAIN ); ?></a>
-						</td>
-					</tr><?php
-					break;*/
-
 				// Default: run an action
 				default:
 					do_action( 'plugin_name_admin_field_' . $value['type'], $value );
@@ -689,7 +632,6 @@ class Plugin_Name_Admin_Settings {
 				case "color" :
 				case "password" :
 				case "single_select_page" :
-				//case "single_select_country" :
 				case "radio" :
 					if ( isset( $_POST[$value['id']] ) ) {
 						$option_value = plugin_name_clean( stripslashes( $_POST[ $value['id'] ] ) );
@@ -701,8 +643,7 @@ class Plugin_Name_Admin_Settings {
 
 				// Special types
 				case "multiselect" :
-				//case "multi_select_countries" :
-					// Get countries array
+					// Get array
 					if ( isset( $_POST[ $value['id'] ] ) ) {
 						$selected_values = array_map( 'plugin_name_clean', array_map( 'stripslashes', (array) $_POST[ $value['id'] ] ) );
 					}
@@ -726,9 +667,9 @@ class Plugin_Name_Admin_Settings {
 						}
 					}
 					else {
-						$update_options[ $value['id'] ]['width'] 	= $value['default']['width'];
-						$update_options[ $value['id'] ]['height'] 	= $value['default']['height'];
-						$update_options[ $value['id'] ]['crop'] 	= $value['default']['crop'];
+						$update_options[ $value['id'] ]['width']  = $value['default']['width'];
+						$update_options[ $value['id'] ]['height'] = $value['default']['height'];
+						$update_options[ $value['id'] ]['crop']   = $value['default']['crop'];
 					}
 				break;
 

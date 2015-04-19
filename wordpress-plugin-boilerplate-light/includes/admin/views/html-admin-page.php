@@ -1,10 +1,14 @@
+<?php
+/**
+* Admin View: Plugin Page
+*/
+?>
 <div class="wrap plugin_name">
 	<h2>
 		<?php echo Plugin_Name()->name; ?>
 		<?php
 		/**
-		 * These header links do not have to be external.
-		 * You may change the links to an internal link connected with the plugin.
+		 * @note These header links do not have to be external. You may change the links to an internal link connected with the plugin.
 		 */
 		$links = apply_filters( 'plugin_name_admin_header_links', array(
 			Plugin_Name()->web_url . '?utm_source=wpadmin&utm_campaign=header' => __( 'Website', PLUGIN_NAME_TEXT_DOMAIN ),
@@ -45,8 +49,8 @@
 
 	<?php
 	/**
-	 * The paragraphs below were added just as an example and to explain what this page can do.
-	 * You may remove it but leave the hooks in place if you still want to use them.
+	 * @note The paragraphs below were added just as an example and to explain what this page can do.
+	 * @note You may remove it but leave the hooks in place if you still want to use them.
 	 */
 	if( empty($view) ) $view = 'default'; echo '<h3>You are viewing section <em>' . $view . '</em></h3>';
 	?>

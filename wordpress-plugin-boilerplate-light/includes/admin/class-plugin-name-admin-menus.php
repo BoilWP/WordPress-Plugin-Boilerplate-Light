@@ -34,7 +34,6 @@ class Plugin_Name_Admin_Menus {
 		add_action( 'admin_init',        array( $this, 'add_admin_menu_separator' ) );
 		// Add menu order and highlighter
 		add_filter( 'menu_order',        array( $this, 'menu_order' ) );
-		//add_filter( 'parent_file',     array( $this, 'menu_parent_file' ) );
 		add_filter( 'custom_menu_order', array( $this, 'custom_menu_order' ) );
 	} // END __construct()
 
@@ -141,35 +140,6 @@ class Plugin_Name_Admin_Menus {
 		// Return menu order
 		return $plugin_name_menu_order;
 	} // END menu_order()
-
-	/**
-	 *
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @param  $parent_file
-	 * @global $current_screen
-	 * @global $pagenow
-	 * @global $submenu_file
-	 */
-	public function menu_parent_file( $parent_file ) {
-		global $current_screen, $pagenow, $submenu_file;
-
-		switch( $pagenow ) {
-			case 'admin.php':
-				if( isset( $_GET['tab'] ) ) {
-					if( $_GET['tab'] == 'tools' ) {
-						$parent_file = 'admin.php?page=' . PLUGIN_NAME_SLUG . '&tab=tools';
-					}
-				}
-				break;
-			default:
-				$parent_file = $parent_file;
-				break;
-		}
-
-		return $parent_file;
-	} // END menu_parent_file()
 
 	/**
 	 * Sets the menu order depending on user access.

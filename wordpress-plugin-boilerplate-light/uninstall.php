@@ -18,9 +18,13 @@ global $wpdb, $wp_roles;
 // For a single site
 if ( ! is_multisite() ) {
 
-	$status_options = get_option( 'plugin_name_status_options', array() );
+	include_once( 'includes/admin/class-plugin-name-admin-settings.php' );
 
-	if ( ! empty( $status_options['uninstall_data'] ) ) {
+	$settings = new Plugin_Name_Admin_Settings();
+
+	$uninstall = $settings->get_option( 'plugin_name_uninstall_data' );
+
+	if ( ! empty( $uninstall ) ) {
 
 		// Delete options
 		$wpdb->query("DELETE FROM $wpdb->options WHERE option_name LIKE 'plugin_name_%';");

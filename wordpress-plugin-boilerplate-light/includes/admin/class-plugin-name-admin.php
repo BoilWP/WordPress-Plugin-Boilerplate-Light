@@ -24,7 +24,6 @@ class Plugin_Name_Admin {
 	public function __construct() {
 		// Actions
 		add_action( 'init',              array( $this, 'includes' ) );
-		add_action( 'admin_init',        array( $this, 'prevent_admin_access' ) );
 		add_action( 'admin_footer', 'plugin_name_print_js', 25 );
 		// Filters
 		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ) );
@@ -57,31 +56,6 @@ class Plugin_Name_Admin {
 			}
 		}
 	} // END includes()
-
-	/**
-	 * Prevent any user who cannot 'edit_posts'
-	 * (subscribers etc) from accessing admin.
-	 *
-	 * @todo   Replace the page id slug 'page-slug' with the
-	 *         page you want to redirect the user to.
-	 * @since  1.0.0
-	 * @access public
-	 * @filter plugin_name_prevent_admin_access
-	 */
-	public function prevent_admin_access() {
-		$prevent_access = false;
-
-		if ( 'yes' == get_option( 'plugin_name_lock_down_admin' ) && ! is_ajax() && ! ( current_user_can( 'edit_posts' ) || current_user_can( Plugin_Name()->manage_plugin ) ) && basename( $_SERVER["SCRIPT_FILENAME"] ) !== 'admin-post.php' ) {
-			$prevent_access = true;
-		}
-
-		$prevent_access = apply_filters( 'plugin_name_prevent_admin_access', $prevent_access );
-
-		if ( $prevent_access ) {
-			wp_safe_redirect( get_permalink( plugin_name_get_page_id( 'page-slug' ) ) );
-			exit;
-		}
-	} // END prevent_admin_access()
 
 	/**
 	 * Filters the admin footer text by placing links
@@ -143,8 +117,6 @@ class Plugin_Name_Admin {
 		$screen = get_current_screen();
 
 		if ( in_array( $screen->id, plugin_name_get_screen_ids() ) ) {
-			$version_link = esc_attr( admin_url( 'index.php?page=' . PLUGIN_NAME_PAGE . '-about' ) );
-
 			$text = '<span class="wrap">';
 
 			$links = apply_filters( 'plugin_name_update_footer_links', array(
